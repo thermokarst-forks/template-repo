@@ -1,5 +1,5 @@
 ---
-name: 2) I found a bug...
+name: 3) I am a developer and I found a bug...
 about: I am a developer and I found a bug that I can describe
 
 ---
@@ -20,9 +20,12 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Computation Environment (please complete the following information):**
- - OS: [e.g. macOS High Sierra]
- - QIIME 2 Release [e.g. 2018.6]
+**Computation Environment**
+- OS: [e.g. macOS High Sierra]
+- QIIME 2 Release [e.g. 2018.6]
 
 **Additional context**
 Add any other context about the problem here.
+
+**References**
+- A list of links to relevant references, including forum posts, stack overflow, etc.
