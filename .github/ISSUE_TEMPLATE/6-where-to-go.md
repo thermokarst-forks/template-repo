@@ -1,5 +1,5 @@
 ---
-name: 6) I don't know where to file my issue...
+name: I don't know where to file my issue...
 about: I am a developer and I don't know which repo to file this in
 
 ---
