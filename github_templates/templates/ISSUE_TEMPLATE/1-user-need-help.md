@@ -1,5 +1,5 @@
 ---
-name: 1) I am a user and I need help with QIIME 2...
+name: I am a user and I need help with QIIME 2...
 about: I am using QIIME 2 and have a question or am experiencing a problem
 
 ---

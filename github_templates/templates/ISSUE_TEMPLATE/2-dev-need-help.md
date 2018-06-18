@@ -1,5 +1,5 @@
 ---
-name: 2) I am a developer and I need help with QIIME 2...
+name: I am a developer and I need help with QIIME 2...
 about: I am developing a QIIME 2 plugin or interface and have a question or a problem
 
 ---

@@ -1,5 +1,5 @@
 ---
-name: 3) I am a developer and I found a bug...
+name: I am a developer and I found a bug...
 about: I am a developer and I found a bug that I can describe
 
 ---

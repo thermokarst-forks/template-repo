@@ -1,5 +1,5 @@
 ---
-name: 5) I am a developer and I have an idea for a new feature...
+name: I am a developer and I have an idea for a new feature...
 about: I am a developer and I have an idea for new functionality
 
 ---
