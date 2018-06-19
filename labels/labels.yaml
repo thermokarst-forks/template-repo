@@ -1,0 +1,202 @@
+- name: bug:1|ux
+  color: fb9a99
+  description: 'This bug only impacts user experience, making life harder than it needs to be.'
+
+- name: bug:2|explodes
+  color: f36f6f
+  description: 'This bug crashes the software, but does not fail silenty (or give bad results).'
+
+- name: bug:3|security
+  color: ed4f50
+  description: 'This bug has security implications.'
+
+- name: bug:4|incorrect
+  color: e31a1c
+  description: 'This bug gives incorrect results (silently or otherwise).'
+
+- name: diff:1|beginner
+  color: afb5c7
+  description: 'Only limited knowledge of the languages and platform is required.'
+
+- name: diff:2|intermediate
+  color: '848994'
+  description: 'A modest understanding of the languages involved and platform is required.'
+
+- name: diff:3|advanced
+  color: 595d60
+  description: 'Requires an expert in the platform to modify core components.'
+
+- name: good first issue
+  color: 7057ff
+  description: 'Good for newcomers'
+
+- name: help wanted
+  color: 008672
+  description: 'Extra attention is needed'
+
+- name: lang:javascript
+  color: 6a3d9a
+  description: 'ES6 with webpack magic.'
+
+- name: lang:jinja2
+  color: 6a3d9a
+  description: 'A templating language.'
+
+- name: lang:misc
+  color: 6a3d9a
+  description: "Anything that doesn't fit, such as a conda recipe."
+
+- name: lang:python
+  color: 6a3d9a
+  description: 'Python 3'
+
+- name: lang:r
+  color: 6a3d9a
+  description: 'The R language'
+
+- name: lang:rst
+  color: 6a3d9a
+  description: 'ReStructured Text'
+
+- name: scope:0|this-project
+  color: fff4e7
+  description: 'No other repositories are impacted.'
+
+- name: scope:1|several-projects
+  color: feaa4a
+  description: 'More than one repository (likely a dependency) is impacted.'
+
+- name: scope:2|most-projects
+  color: fe9425
+  description: 'Most projects are impacted by this change.'
+
+- name: scope:3|all-projects
+  color: FF7F00
+  description: 'All projects are impacted by this change.'
+
+- name: src:automaton
+  color: d9d9d9
+  description: 'A robot such as q2d2 has created this.'
+
+- name: src:collab
+  color: d9d9d9
+  description: 'A collaborator found this.'
+
+- name: src:forum
+  color: d9d9d9
+  description: 'From the QIIME 2 Forum.'
+
+- name: src:self
+  color: d9d9d9
+  description: 'From the original poster.'
+
+- name: stat:DO-NOT-MERGE
+  old:
+    - DO-NOT-MERGE
+    - DO NOT MERGE
+  color: fbca04
+  description: 'Please do not merge this until this label has been removed.'
+
+- name: stat:blocked
+  color: d93f0b
+  description: 'This cannot be resolved until something else has changed.'
+
+- name: stat:blocking-other
+  color: b60205
+  description: 'This is blocking other issues/PRs/projects.'
+
+- name: stat:cant-fix
+  old:
+    - cantfix
+  color: '774125'
+  description: 'There is an underlying problem/contradiction that makes this impossible to fix.'
+
+- name: stat:duplicate
+  old:
+   - duplicate
+  color: '010101'
+  description: 'Already seen'
+
+- name: stat:in-progress
+  old:
+   - in progress
+  color: f783c6
+  description: "It's happening!"
+
+- name: stat:wont-fix
+  old:
+    - wontfix
+  color: '010101'
+  description: 'This is outside the scope/abilities/concerns of the project.'
+
+- name: time:0|unknown
+  color: f2faeb
+  description: 'No estimate yet made.'
+
+- name: time:1|short
+  color: 92cf72
+  description: 'Should not take very much time to complete (assuming familiarity).'
+
+- name: time:2|medium
+  color: 72c05b
+  description: 'May take some time to complete (even with familiarity).'
+
+- name: time:3|long
+  color: 53b044
+  description: 'May take a very long time to complete.'
+
+- name: time:4|extensive
+  color: 33a02c
+  description: 'A very long-term goal made of many components.'
+
+- name: type:analysis
+  old:
+    - analysis
+  color: cab2d6
+  description: 'A problem needs to be understood better.'
+
+- name: type:automation
+  color: cab2d6
+  description: 'Making developers do less work.'
+
+- name: type:bug
+  old:
+    - bug
+  color: cab2d6
+  description: 'Something is wrong.'
+
+- name: type:discussion
+  color: cab2d6
+  description: 'Targeted discussion on implementations.'
+
+- name: type:distribution
+  color: cab2d6
+  description: 'Related to packaging and distribution of software.'
+
+- name: type:feature
+  color: cab2d6
+  description: 'Making something entirely new.'
+
+- name: type:improvement
+  color: cab2d6
+  description: 'Making something better.'
+
+- name: type:testing
+  color: cab2d6
+  description: 'Related to automated testing.'
+
+- name: weight:0|someday
+  color: e9f3f8
+  description: "It's a good idea, but no schedule on delivery."
+
+- name: weight:1|low
+  color: 84b8d7
+  description: 'It is definitely happening in the future.'
+
+- name: weight:2|moderate
+  color: 579cc8
+  description: 'It will happen soon.'
+
+- name: weight:3|high
+  color: 1f78b4
+  description: 'It is probably in progress or about to be.'
