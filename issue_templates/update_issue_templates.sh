@@ -18,8 +18,8 @@ fi
 destination_repo=$1
 remote=$2
 local_branch="master"
-issue_templates_dir=.github/ISSUE_TEMPLATE
-destination_dir=$destination_repo/$issue_templates_dir
+issue_templates_dir=ISSUE_TEMPLATE
+destination_dir=$destination_repo/.github/$issue_templates_dir
 
 # check if destination repo is in fact a repo. Also ensure no uncommitted work.
 is_git_repo="$(cd $destination_repo && git rev-parse --is-inside-work-tree 2>/dev/null)"
@@ -39,33 +39,23 @@ fi
 name="q2d2"
 email="q2d2.noreply@gmail.com"
 
-# If renaming templates, we should probably script it out here so that they
-# are renamed or removed as appropriate.
-# Treat this script as the authoritative manifest.
+cd $destination_repo && \
+    git checkout $local_branch --quiet && \
+    rm -rf $destination_dir && \
+    mkdir -p $destination_dir ; \
+    cd -
 
-manifest=(
-    1-user-need-help.md
-    2-dev-need-help.md
-    3-found-bug.md
-    4-make-better.md
-    5-make-new.md
-    6-where-to-go.md
-)
-
-mkdir -p $destination_dir
-
-for template in "${manifest[@]}"
-do
-    cp ./$issue_templates_dir/$template $destination_dir
-    cd $destination_dir && git checkout $local_branch && git add $destination_dir/$template ; cd -
-done
+cp -r ./$issue_templates_dir/* $destination_dir
 
 cd $destination_dir && \
+    git add $destination_dir && \
     GIT_AUTHOR_NAME=$name \
     GIT_AUTHOR_EMAIL=$email \
     GIT_COMMITTER_NAME=$name \
     GIT_COMMITTER_EMAIL=$email \
-    git commit -m 'MAINT: Updating GitHub issue templates' ;
+    git commit -m 'MAINT: Updating GitHub issue templates' --quiet ;
     cd -
 
-cd $destination_dir && git push $remote $local_branch ; cd -
+cd $destination_dir && \
+    git push $remote $local_branch --quiet ; \
+    cd -
