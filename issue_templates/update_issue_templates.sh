@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ../common/funcs.sh
+
 # This script doesn't work with bare git repos. It also assumes the caller
 # has push access to the remote repo.
 
@@ -20,42 +22,11 @@ remote=$2
 local_branch="master"
 issue_templates_dir=ISSUE_TEMPLATE
 destination_dir=$destination_repo/.github/$issue_templates_dir
+commit_msg=MAINT: Updating GitHub issue templates
 
-# check if destination repo is in fact a repo. Also ensure no uncommitted work.
-is_git_repo="$(cd $destination_repo && git rev-parse --is-inside-work-tree 2>/dev/null)"
-if [ "$is_git_repo" == "" ]; then
-    echo "directory provided is not a git repo"
-    exit 1
-fi
-
-# this could be better, but for now...
-has_unstaged_changes="$(cd $destination_repo && git diff-index --quiet HEAD || echo "fail")"
-if [ "$has_unstaged_changes" == "fail" ]; then
-    echo "unstaged changes in local repo"
-    exit 1
-fi
-
-# Q2D2 author info
-name="q2d2"
-email="q2d2.noreply@gmail.com"
-
-cd $destination_repo && \
-    git checkout $local_branch --quiet && \
-    rm -rf $destination_dir && \
-    mkdir -p $destination_dir ; \
-    cd -
-
+# actions
+validate_repo "$destination_repo"
+prep_dest_dir "$destination_repo" "$local_branch" "$destination_dir"
 cp -r ./$issue_templates_dir/* $destination_dir
-
-cd $destination_dir && \
-    git add $destination_dir && \
-    GIT_AUTHOR_NAME=$name \
-    GIT_AUTHOR_EMAIL=$email \
-    GIT_COMMITTER_NAME=$name \
-    GIT_COMMITTER_EMAIL=$email \
-    git commit -m 'MAINT: Updating GitHub issue templates' --quiet ;
-    cd -
-
-cd $destination_dir && \
-    git push $remote $local_branch --quiet ; \
-    cd -
+commit_changes "$destination_dir" "$commit_msg"
+push_changes "$destination_dir" "$remote" "$local_branch"
