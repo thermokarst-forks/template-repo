@@ -173,7 +173,9 @@
   color: cab2d6
   description: 'Related to packaging and distribution of software.'
 
-- name: type:feature
+- name: type:new-feature
+  old:
+    - type:feature
   color: cab2d6
   description: 'Making something entirely new.'
 
