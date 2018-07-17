@@ -2,7 +2,7 @@
 
 . ../common/funcs.sh
 
-set -e
+set -e -x
 
 # This script doesn't work with bare git repos. It also assumes the caller
 # has push access to the remote repo.
