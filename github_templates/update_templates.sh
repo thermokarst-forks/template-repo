@@ -2,10 +2,12 @@
 
 . ../common/funcs.sh
 
+set -e
+
 # This script doesn't work with bare git repos. It also assumes the caller
 # has push access to the remote repo.
 
-if [ $# -ne 2 ]
+if [ $# -eq 0 ] || [ $# -gt 2 ];
   then
     cat <<EOF
 Usage: $0 \$LOCAL_REPO \$REMOTE
@@ -29,4 +31,7 @@ validate_repo "$destination_repo"
 prep_dest_dir "$destination_repo" "$local_branch" "$destination_dir"
 cp -r ./$templates_dir/* $destination_dir
 commit_changes "$destination_dir" "$commit_msg"
-push_changes "$destination_dir" "$remote" "$local_branch"
+
+if [ -n $remote ]; then
+	push_changes "$destination_dir" "$remote" "$local_branch"
+fi
