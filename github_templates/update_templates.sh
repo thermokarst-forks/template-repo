@@ -32,6 +32,6 @@ prep_dest_dir "$destination_repo" "$local_branch" "$destination_dir"
 cp -r ./$templates_dir/* $destination_dir
 commit_changes "$destination_dir" "$commit_msg"
 
-if [ -n $remote ]; then
+if [ $remote ]; then
 	push_changes "$destination_dir" "$remote" "$local_branch"
 fi
