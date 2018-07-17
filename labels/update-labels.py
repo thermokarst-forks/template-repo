@@ -89,7 +89,6 @@ def find_match(label, to_search):
 def main(repo_name, auth):
     gh = github.Github(**auth)
     repo = gh.get_repo(repo_name)
-    changes_made = []
     remaining_labels = get_expected_labels()
 
     for exist_label in repo.get_labels():
@@ -106,7 +105,7 @@ def main(repo_name, auth):
 
 def get_user_pass():
     print("Please enter your Github username/password to make these changes.")
-    print("(Or set GH_TOKEN to skip this.)")
+    print("(Or set GITHUB_TOKEN or GITHUB_USER/PASS to skip this.)")
     user = input('Username: ')
     password = getpass.getpass()
     return user, password
@@ -138,12 +137,16 @@ def colorize(text, color):
 if __name__ == '__main__':
     repo_name = sys.argv[1]
 
-    token = os.environ.get('GH_TOKEN')
+    token = os.environ.get('GITHUB_TOKEN')
     if token is None:
-        user, password = get_user_pass()
-        auth = { 'login_or_token': user, 'password': password }
+        user = os.environ.get("GITHUB_USER")
+        password = os.environ.get("GITHUB_PASS")
+        if user is None or password is None:
+            user, password = get_user_pass()
+
+        auth = {'login_or_token': user, 'password': password}
     else:
-        auth = { 'login_or_token': token }
+        auth = {'login_or_token': token}
 
     for change in main(repo_name, auth):
         print_change(change)
