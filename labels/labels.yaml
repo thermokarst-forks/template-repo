@@ -1,18 +1,38 @@
-- name: bug:1|ux
+- name: bug-sev:1|negligible
+  color: f9d0c4
+  description: ''
+
+- name: bug-sev:2|low
   color: fb9a99
-  description: 'This bug only impacts user experience, making life harder than it needs to be.'
+  description: ''
 
-- name: bug:2|explodes
+- name: bug-sev:3|medium
   color: f36f6f
-  description: 'This bug crashes the software, but does not fail silenty (or give bad results).'
+  description: ''
 
-- name: bug:3|security
+- name: bug-sev:4|high
   color: ed4f50
-  description: 'This bug has security implications.'
+  description: ''
 
-- name: bug:4|incorrect
+- name: bug-sev:5|extreme
   color: e31a1c
-  description: 'This bug gives incorrect results (silently or otherwise).'
+  description: ''
+
+- name: bug-type:1|cosmetic
+  color: fc9550
+  description: 'UX is less than ideal; something is superficially wrong.'
+
+- name: bug-type:2|workaround-req
+  color: fc9550
+  description: 'Progress can''t be made in the usual way.'
+
+- name: bug-type:3|stops-work
+  color: fc9550
+  description: 'It is no longer possible to use QIIME 2 in this way.'
+
+- name: bug-type:4|retraction
+  color: e31a1c
+  description: 'Incorrect or invalid results produced.'
 
 - name: diff:1|beginner
   color: afb5c7
