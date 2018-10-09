@@ -222,3 +222,7 @@
 - name: weight:3|high
   color: 1f78b4
   description: 'It is probably in progress or about to be.'
+
+- name: Hacktoberfest
+  color: 542b3d
+  description: 'Good fit for the Hacktoberfest challenge'
