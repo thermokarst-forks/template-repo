@@ -47,8 +47,8 @@ if __name__ == '__main__':
     token = os.environ.get('GH_TOKEN')
     if token is None:
         user, password = get_user_pass()
-        auth = { 'login_or_token': user, 'password': password }
+        auth = {'login_or_token': user, 'password': password}
     else:
-        auth = { 'login_or_token': token }
+        auth = {'login_or_token': token}
 
     main(repo_name, auth, filepath)
