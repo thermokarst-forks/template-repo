@@ -36,6 +36,8 @@ commit_changes() {
         GIT_AUTHOR_EMAIL="q2d2.noreply@gmail.com" \
         GIT_COMMITTER_NAME="q2d2" \
         GIT_COMMITTER_EMAIL="q2d2.noreply@gmail.com" \
+        git diff --quiet && \
+        git diff --staged --quiet || \
         git commit -m "$2" --quiet ;
         cd - > /dev/null
 }
