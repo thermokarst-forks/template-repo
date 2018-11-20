@@ -30,15 +30,18 @@ prep_dest_dir() {
 }
 
 commit_changes() {
-    cd $1 && \
-        git diff --quiet || \
+    cd $1
+    if [[ `git status --porcelain` ]]; then
         git add $1 && \
-        GIT_AUTHOR_NAME="q2d2" \
-        GIT_AUTHOR_EMAIL="q2d2.noreply@gmail.com" \
-        GIT_COMMITTER_NAME="q2d2" \
-        GIT_COMMITTER_EMAIL="q2d2.noreply@gmail.com" \
-        git commit -m "$2" --quiet ;
-        cd - > /dev/null
+           GIT_AUTHOR_NAME="q2d2" \
+           GIT_AUTHOR_EMAIL="q2d2.noreply@gmail.com" \
+           GIT_COMMITTER_NAME="q2d2" \
+           GIT_COMMITTER_EMAIL="q2d2.noreply@gmail.com" \
+           git commit -m "$2" --quiet
+    else
+        echo "No changes"
+    fi
+    cd -
 }
 
 push_changes() {
