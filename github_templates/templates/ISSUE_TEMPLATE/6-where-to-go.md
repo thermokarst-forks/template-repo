@@ -14,9 +14,6 @@ Sorted alphabetically by repo name.
 - A Concourse resource for working with conda
   https://github.com/qiime2/conda-channel-resource/issues
 
-- Old conda recipes (repo is mostly unused now)
-  https://github.com/qiime2/conda-recipes/issues
-
 - Web app for vanity URLs for QIIME 2 data assets
   https://github.com/qiime2/data.qiime2.org/issues
 
