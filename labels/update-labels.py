@@ -91,7 +91,7 @@ def main(repo_name, auth):
     repo = gh.get_repo(repo_name)
     remaining_labels = get_expected_labels()
 
-    for exist_label in repo.get_labels():
+    for exist_label in get_labels(repo):
         matched_label, remaining_labels = find_match(exist_label,
                                                      remaining_labels)
         if matched_label is not None:
@@ -101,6 +101,18 @@ def main(repo_name, auth):
 
     for exp_label in remaining_labels:
         yield create_label(repo, exp_label)
+
+
+def get_labels(repo):
+    """Set accept header for descriptions"""
+    return github.PaginatedList.PaginatedList(
+        github.Label.Label,
+        repo._requester,
+        repo.url + '/labels',
+        None,
+        headers={
+            'Accept': github.Consts.mediaTypeLabelDescriptionSearchPreview
+        })
 
 
 def get_user_pass():
