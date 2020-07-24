@@ -21,11 +21,9 @@ validate_repo() {
     uncommitted_changes_in_repo "$1"
 }
 
-prep_dest_dir() {
+prep_dest() {
     cd $1 && \
         git checkout $2 --quiet && \
-        rm -rf $3 && \
-        mkdir -p $3 ; \
         cd - > /dev/null
 }
 

@@ -28,7 +28,7 @@ commit_msg="MAINT: Updating GitHub templates"
 
 # actions
 validate_repo "$destination_repo"
-prep_dest_dir "$destination_repo" "$local_branch" "$destination_dir"
+prep_dest "$destination_repo" "$local_branch"
 cp -r ./$templates_dir/* $destination_dir
 commit_changes "$destination_dir" "$commit_msg"
 
