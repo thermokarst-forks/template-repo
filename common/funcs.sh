@@ -22,9 +22,9 @@ validate_repo() {
 }
 
 prep_dest() {
-    cd $1 && \
-        git checkout $2 --quiet && \
-        cd - > /dev/null
+    cd $1
+    git checkout $2 --quiet > /dev/null
+    cd -
 }
 
 commit_changes() {
