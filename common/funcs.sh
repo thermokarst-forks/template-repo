@@ -32,6 +32,7 @@ prep_dest() {
 
 commit_changes() {
     cd $1
+    git diff-index --quiet HEAD --
     if ! $(git diff-index --quiet HEAD --); then
         git add $1 && \
            GIT_AUTHOR_NAME="q2d2" \
