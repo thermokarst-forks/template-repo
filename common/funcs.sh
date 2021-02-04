@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -x
+
 is_dir_a_repo() {
     is_git_repo="$(cd $1 && git rev-parse --is-inside-work-tree 2>/dev/null)"
     if [ "$is_git_repo" == "" ]; then
