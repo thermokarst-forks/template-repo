@@ -32,8 +32,7 @@ prep_dest() {
 
 commit_changes() {
     cd $1
-    git diff-index --quiet HEAD --
-    if ! $(git diff-index --quiet HEAD --); then
+    if [[ `git status --porcelain` ]]; then
         git add $1 && \
            GIT_AUTHOR_NAME="q2d2" \
            GIT_AUTHOR_EMAIL="q2d2.noreply@gmail.com" \
