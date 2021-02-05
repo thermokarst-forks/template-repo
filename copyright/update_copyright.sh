@@ -33,6 +33,7 @@ q2lint --update-copyright-year
 cd -
 pwd
 echo "$destination_dir"
+echo "$1"
 commit_changes "$destination_dir" "$commit_msg"
 
 if [ $remote ]; then
