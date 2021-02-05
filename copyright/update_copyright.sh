@@ -19,23 +19,17 @@ exit 0
 fi
 
 # args & vars
-destination_repo=$1
-remote=$2
 local_branch="master"
 commit_msg="MAINT: Updating copyright year"
 
 # actions
-validate_repo "$destination_repo"
-prep_dest "$destination_repo" "$local_branch"
-cd $destination_repo
-pwd
+validate_repo "$1"
+prep_dest "$1" "$local_branch"
+cd $1
 q2lint --update-copyright-year
 cd -
-pwd
-echo "$destination_dir"
-echo "$1"
-commit_changes "$destination_dir" "$commit_msg"
+commit_changes "$1" "$commit_msg"
 
 if [ $remote ]; then
-	push_changes "$destination_dir" "$remote" "$local_branch"
+	push_changes "$1" "$2" "$local_branch"
 fi
