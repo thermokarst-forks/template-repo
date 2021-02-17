@@ -26,6 +26,7 @@ validate_repo() {
 prep_dest() {
     cd $1
     git checkout $2 --quiet > /dev/null
+    mkdir -p $3
     cd -
 }
 
